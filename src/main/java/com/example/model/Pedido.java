@@ -3,7 +3,6 @@ package com.example.model;
 import java.util.*;
 
 public class Pedido {
-
      public enum Status {
         EM_PREPARO,
         PRONTO,
@@ -15,7 +14,7 @@ public class Pedido {
     private static int proximoId = 1; 
     private Status status; 
     
-    Pedido(Carrinho carrinho){
+    public Pedido(Carrinho carrinho){
         this.pedidos = carrinho.getProdutos();     
         this.id = proximoId++;
         this.status = Status.EM_PREPARO;

@@ -1,6 +1,10 @@
 package com.example;
 
 import java.util.*;
+import com.example.model.Cardapio;
+import com.example.model.Carrinho;
+import com.example.model.Pedido;
+import com.example.model.Produto;
 
 public class AppSemLaunch {
     public static void main(String[] args) throws Exception {

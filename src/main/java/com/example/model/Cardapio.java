@@ -1,5 +1,4 @@
-package com.example;
-
+package com.example.model;
 
 import java.util.*;
 
