@@ -1,11 +1,15 @@
 package com.example;
 
+import java.io.IOException;
+
+import com.example.model.Bebida;
+import com.example.model.Comida;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import java.io.IOException;
 
 /**
  * JavaFX App
@@ -16,7 +20,6 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-
         scene = new Scene(loadFXML("primary"), 540, 760);
         stage.setScene(scene);
         stage.show();
@@ -32,6 +35,15 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
+        Comida frangoP = new Comida("Frango Pequeno", 29.9,"Serve uma criança", 120);
+        Comida frangoM = new Comida("Frango Medio", 49.9,"Serve um adulto", 300);
+        Comida frangoG = new Comida("Frango Grande", 69.9,"Serve dois adulto", 600);
+        Comida frangoGG = new Comida("Frango Familia", 99.9,"Serve 3 adultos", 900);
+
+        Bebida CocaColaLata = new Bebida("Coca Cola Lata", 8.0,"Canudo incluso", 350, false);
+        Bebida CocaCola = new Bebida("Coca Cola", 16.0,"Serve 2 pessoas", 3000, false);
+        Bebida Cerveja = new Bebida("Heineken", 12.0,"Long neck", 370, true);
+        
         launch();
     }
 

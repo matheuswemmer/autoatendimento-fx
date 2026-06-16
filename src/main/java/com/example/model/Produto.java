@@ -1,21 +1,22 @@
 package com.example.model;
 
-import java.util.*;
-
 public class Produto {
     
     private String nome;
     private double valor;
     private final int idDoProduto;
     private static int proxId = 1;
-    private ArrayList<String> ingredientes = new ArrayList<>();
+    private String descricao;
+    private int quantidade; 
 
-    public Produto (String nome, double valor, List<String> ingredientes){
+    Produto (String nome, double valor, String descricao){
         this.nome = nome;
         this.valor = valor;
-        this.ingredientes = new ArrayList<>(ingredientes);
+        this.descricao = descricao;
         this.idDoProduto = proxId++;
+        this.quantidade = 0;
     }
+
 
     public String getNome() {
         return nome;
@@ -37,18 +38,32 @@ public class Produto {
         this.valor = valor;
     }
 
-    public ArrayList<String> getIngredientes() {
-        return ingredientes;
-    }
-
-    public void setIngredientes(ArrayList<String> ingredientes) {
-        this.ingredientes = ingredientes;
-    }
 
     public String getDetalhes(){
     return ("ID: " + idDoProduto + " " + nome + "\n" +
-            "Ingredientes: " + String.join(", ", ingredientes) + "\n" +
+            "Descrição: " + descricao + "\n" +
             "Valor: R$" + valor + "\n");
     }
     
+    public void aumentarQuantidade(){
+        this.quantidade++;
+    }
+     public void diminuirQuantidade(){
+        this.quantidade--;
+    }
+
+    
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+
+     public void setDescricao(String descricao) {
+         this.descricao = descricao;
+     }
+
+    public int getQuantidade(){
+        return this.quantidade;
+    }
 }

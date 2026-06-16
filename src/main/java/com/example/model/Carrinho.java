@@ -8,11 +8,17 @@ public class Carrinho {
     private final List<Produto> meuCarrinho = new ArrayList<>();
 
     public void adicionarProduto(Produto produto){
-        meuCarrinho.add(produto);
+        produto.aumentarQuantidade();
+        if (!meuCarrinho.contains(produto)) {
+            meuCarrinho.add(produto);        
+        }
     }
 
     public void removerProdutos(Produto produto){
+        produto.diminuirQuantidade();
+        if (produto.getQuantidade() == 0){ 
         meuCarrinho.remove(produto);
+        }
     }
 
     public double getValorTotal(){
@@ -31,6 +37,10 @@ public class Carrinho {
         for (Produto p : meuCarrinho){
             System.out.println(p.getDetalhes());
         }
+    }
+
+    public List<Produto> getMeuCarrinho() {
+        return meuCarrinho;
     }
 
 }
