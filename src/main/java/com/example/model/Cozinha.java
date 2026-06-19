@@ -24,7 +24,7 @@ public class Cozinha {
                 pedidos.remove(pedido);
                 pedidosEntregues.add(pedido);
             }
-            case ENTREGUE -> { /* já é o último, botão nem deveria aparecer */ }
+            case ENTREGUE -> { /* nada a fazer */ }
         }
     }
 
