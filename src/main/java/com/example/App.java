@@ -35,10 +35,10 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        Comida frangoP = new Comida("Frango Pequeno", 29.9,"Serve uma criança", 120);
-        Comida frangoM = new Comida("Frango Medio", 49.9,"Serve um adulto", 300);
-        Comida frangoG = new Comida("Frango Grande", 69.9,"Serve dois adulto", 600);
-        Comida frangoGG = new Comida("Frango Familia", 99.9,"Serve 3 adultos", 900);
+        Comida frangoP = new Comida("Frango Pequeno", 29.9,"Serve uma criança", 650,250);
+        Comida frangoM = new Comida("Frango Medio", 49.9,"Serve um adulto", 400,900);
+        Comida frangoG = new Comida("Frango Grande", 69.9,"Serve dois adulto", 1400, 600);
+        Comida frangoGG = new Comida("Frango Familia", 99.9,"Serve 3 adultos", 2000,900);
 
         Bebida CocaColaLata = new Bebida("Coca Cola Lata", 8.0,"Canudo incluso", 350, false);
         Bebida CocaCola = new Bebida("Coca Cola", 16.0,"Serve 2 pessoas", 3000, false);
