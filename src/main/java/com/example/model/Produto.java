@@ -7,20 +7,19 @@ public abstract class Produto {
     private final int idDoProduto;
     private static int proxId = 1;
     private String descricao;
-    private int quantidade; 
 
     protected Produto (String nome, double valor, String descricao){
         this.nome = nome;
         this.valor = valor;
         this.descricao = descricao;
         this.idDoProduto = proxId++;
-        this.quantidade = 0;
     }
+    
 
     public String getDetalhes(){
     return ("ID: " + idDoProduto + " " + nome + "\n" +
             "Descrição: " + descricao + "\n" +
-            "Valor: R$" + valor + "\n");
+            String.format("Valor: R$ %.2f%n", valor));
     }
 
 
@@ -44,19 +43,6 @@ public abstract class Produto {
         this.valor = valor;
     }
 
-    
-    public void aumentarQuantidade(){
-        this.quantidade++;
-    }
-
-    public boolean diminuirQuantidade() {
-    if (this.quantidade > 0) {
-        this.quantidade--;
-        return true;
-    }
-    return false;
-}
-
     public String getDescricao() {
         return descricao;
     }
@@ -66,7 +52,4 @@ public abstract class Produto {
          this.descricao = descricao;
      }
 
-    public int getQuantidade(){
-        return this.quantidade;
-    }
 }

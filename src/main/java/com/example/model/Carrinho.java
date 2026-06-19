@@ -5,41 +5,49 @@ import java.util.*;
 
 public class Carrinho {    
 
-    private final List<Produto> meuCarrinho = new ArrayList<>();
+    private final Map<Produto, Integer> meuCarrinho = new HashMap<>();
+
+    public void verMeuCarrinho(){
+        System.out.println("\n" + "===RESUMO DO PEDIDO===" + "\n");
+        for (Map.Entry<Produto, Integer> entry : meuCarrinho.entrySet()){
+            Produto p = entry.getKey();
+            System.out.println(p.getDetalhes() + "Quantidade: " + entry.getValue() + "\n");
+            }
+            System.out.println(String.format("Valor total: R$%.2f%n", this.getValorTotal()));
+    }
+
+    public int getQuantidade(Produto produto){
+        return meuCarrinho.getOrDefault(produto, 0);
+    }
 
     public void adicionarProduto(Produto produto){
-        produto.aumentarQuantidade();
-        if (!meuCarrinho.contains(produto)) {
-            meuCarrinho.add(produto);        
+            meuCarrinho.put(produto, (this.getQuantidade(produto) + 1));
+    }   
+    
+    public boolean removerProduto(Produto produto){
+            if(meuCarrinho.getOrDefault(produto, 0) == 0){
+                return false;
+            }
+                meuCarrinho.put(produto, (this.getQuantidade(produto) - 1));
+                return true;
         }
-    }
-
-    public void removerProdutos(Produto produto){
-        produto.diminuirQuantidade();
-        if (produto.getQuantidade() == 0){ 
-        meuCarrinho.remove(produto);
-        }
-    }
 
     public double getValorTotal(){
         double valorTotal = 0;
-    for (Produto p : meuCarrinho) {
-        valorTotal += p.getValor();
-        }
+        
+        for (Map.Entry<Produto, Integer> entry : meuCarrinho.entrySet()){
+            Produto p = entry.getKey();
+            valorTotal += (p.getValor() * entry.getValue());
+            }
         return valorTotal;
     }
 
-    public List<Produto> getProdutos(){
-        return meuCarrinho;
+    public Set<Produto> getProdutos(){
+        Set<Produto> produtos = meuCarrinho.keySet();
+        return produtos;
     }
 
-    public void exibirProdutos(){
-        for (Produto p : meuCarrinho){
-            System.out.println(p.getDetalhes());
-        }
-    }
-
-    public List<Produto> getMeuCarrinho() {
+    public Map<Produto, Integer> getMeuCarrinho() {
         return meuCarrinho;
     }
 

@@ -9,7 +9,7 @@ public class Pedido {
         ENTREGUE
     }
 
-    private List<Produto> pedidos = new ArrayList<>();
+    private Map<Produto, Integer> pedidos = new Map<>();
     private final int id;
     private static int proximoId = 1; 
     private Status status; 
