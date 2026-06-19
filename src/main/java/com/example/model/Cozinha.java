@@ -10,25 +10,29 @@ public class Cozinha {
     private static List<Pedido> pedidos = new ArrayList<>();
     private static List<Pedido> pedidosEntregues = new ArrayList<>();
 
-    public Cozinha(List<Pedido> pedidos){
-        Cozinha.pedidos = pedidos;
-    };
+    private Cozinha() {} // ninguém pode instanciar
 
     public static void enviarParaCozinha(Pedido pedido) {
         pedidos.add(pedido);
     }
     
-    public void finalizarPedido(Pedido pedido) {
-            pedido.setStatus(Status.ENTREGUE);
-            pedidos.remove(pedidos.indexOf(pedido));
-            pedidosEntregues.add(pedido);
+    public static void avancarStatus(Pedido pedido) {
+        switch (pedido.getStatus()) {
+            case EM_PREPARO -> pedido.setStatus(Status.PRONTO);
+            case PRONTO -> {
+                pedido.setStatus(Status.ENTREGUE);
+                pedidos.remove(pedido);
+                pedidosEntregues.add(pedido);
+            }
+            case ENTREGUE -> { /* já é o último, botão nem deveria aparecer */ }
         }
+    }
 
-    public List<Pedido> listarEntregues() {
+    public static List<Pedido> listarEntregues() {
             return pedidosEntregues;
     }
 
-    public List<Pedido> listarTodos() {
+    public static List<Pedido> listarTodos() {
     return pedidos;
     }    
    

@@ -11,10 +11,16 @@ public class Pedido {
 
     private final Map<Produto, Integer> itens;
     private Status status;
+    private final int idDoPedido;
+    private static int proxIdPedido = 1;
 
-    public Pedido(Map<Produto, Integer> itens, Status status){
+    public Pedido(Map<Produto, Integer> itens){
         this.itens = itens;
-        this.status = status;
+        this.status = Status.EM_PREPARO;
+        this.idDoPedido = proxIdPedido++;
+    }
+    public int getIdDoPedido() {
+        return idDoPedido;
     }
 
     public void setStatus(Status status) {
@@ -43,5 +49,12 @@ public class Pedido {
         sb.append(status);
 
         return sb.toString();
-    }   
+    } 
+    public double getValorTotal() {
+    double total = 0;
+    for (Map.Entry<Produto, Integer> item : itens.entrySet()) {
+        total += item.getKey().getValor() * item.getValue();
+    }
+    return total;
+}
 }

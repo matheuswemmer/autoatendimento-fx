@@ -5,8 +5,8 @@ import java.util.*;
 
 public class Carrinho {    
 
+
     private final Map<Produto, Integer> meuCarrinho = new HashMap<>();
-    private final Cozinha C = new Cozinha(null);
 
     public void verMeuCarrinho(){
         System.out.println("\n" + "===RESUMO DO PEDIDO===" + "\n");
@@ -19,8 +19,9 @@ public class Carrinho {
 
     public boolean finalizarCarrinho(){
         if(meuCarrinho.size() != 0){
-            Pedido meuPedido = new Pedido(meuCarrinho, null);
+            Pedido meuPedido = new Pedido(meuCarrinho);
             Cozinha.enviarParaCozinha(meuPedido);
+            meuCarrinho.clear();
             return true;
         }
         else return false;
