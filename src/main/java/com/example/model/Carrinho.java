@@ -6,6 +6,7 @@ import java.util.*;
 public class Carrinho {    
 
     private final Map<Produto, Integer> meuCarrinho = new HashMap<>();
+    private final Cozinha C = new Cozinha(null);
 
     public void verMeuCarrinho(){
         System.out.println("\n" + "===RESUMO DO PEDIDO===" + "\n");
@@ -14,6 +15,15 @@ public class Carrinho {
             System.out.println(p.getDetalhes() + "Quantidade: " + entry.getValue() + "\n");
             }
             System.out.println(String.format("Valor total: R$%.2f%n", this.getValorTotal()));
+    }
+
+    public boolean finalizarCarrinho(){
+        if(meuCarrinho.size() != 0){
+            Pedido meuPedido = new Pedido(meuCarrinho, null);
+            Cozinha.enviarParaCozinha(meuPedido);
+            return true;
+        }
+        else return false;
     }
 
     public int getQuantidade(Produto produto){

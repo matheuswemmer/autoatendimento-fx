@@ -1,45 +1,47 @@
 package com.example.model;
 
-import java.util.*;
+import java.util.Map;
 
 public class Pedido {
-     public enum Status {
+    public enum Status{
         EM_PREPARO,
         PRONTO,
         ENTREGUE
     }
 
-    private Map<Produto, Integer> pedidos = new Map<>();
-    private final int id;
-    private static int proximoId = 1; 
-    private Status status; 
-    
-    public Pedido(Carrinho carrinho){
-        this.pedidos = carrinho.getProdutos();     
-        this.id = proximoId++;
-        this.status = Status.EM_PREPARO;
-    }
+    private final Map<Produto, Integer> itens;
+    private Status status;
 
-    public void exibirPedido() {
-        System.out.println("Pedido: " + id + " - Status: " + status);
-        for (Produto p : pedidos){
-            System.out.println(p.getDetalhes());
-        }
-    }
-
-    public void setStatus(Status status){
+    public Pedido(Map<Produto, Integer> itens, Status status){
+        this.itens = itens;
         this.status = status;
     }
 
-    public int getId() {
-        return id;
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+    
+
+    public Map<Produto, Integer> getItens() {
+        return itens;
     }
 
     public Status getStatus() {
         return status;
     }
 
-    public List<Produto> getPedidos() {
-        return pedidos;
-    }
+    public String listarItensDoPedido() {
+        StringBuilder sb = new StringBuilder();
+
+        for (Map.Entry<Produto, Integer> item : itens.entrySet()) {
+            sb.append(item.getKey().getNome())
+            .append(" - Quantidade: ")
+            .append(item.getValue())
+            .append("\n");
+        }
+
+        sb.append(status);
+
+        return sb.toString();
+    }   
 }

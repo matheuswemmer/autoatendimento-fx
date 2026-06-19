@@ -35,6 +35,7 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
+    @SuppressWarnings("unused")
     public static void main(String[] args) {
         Comida frangoP = new Comida("Frango Pequeno", 29.9,"Serve uma criança", 650,250);
         Comida frangoM = new Comida("Frango Medio", 49.9,"Serve um adulto", 400,900);
