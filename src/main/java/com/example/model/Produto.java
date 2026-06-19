@@ -1,6 +1,6 @@
 package com.example.model;
 
-public class Produto {
+public abstract class Produto {
     
     private String nome;
     private double valor;
@@ -9,12 +9,18 @@ public class Produto {
     private String descricao;
     private int quantidade; 
 
-    Produto (String nome, double valor, String descricao){
+    protected Produto (String nome, double valor, String descricao){
         this.nome = nome;
         this.valor = valor;
         this.descricao = descricao;
         this.idDoProduto = proxId++;
         this.quantidade = 0;
+    }
+
+    public String getDetalhes(){
+    return ("ID: " + idDoProduto + " " + nome + "\n" +
+            "Descrição: " + descricao + "\n" +
+            "Valor: R$" + valor + "\n");
     }
 
 
@@ -38,21 +44,18 @@ public class Produto {
         this.valor = valor;
     }
 
-
-    public String getDetalhes(){
-    return ("ID: " + idDoProduto + " " + nome + "\n" +
-            "Descrição: " + descricao + "\n" +
-            "Valor: R$" + valor + "\n");
-    }
     
     public void aumentarQuantidade(){
         this.quantidade++;
     }
-     public void diminuirQuantidade(){
-        this.quantidade--;
-    }
 
-    
+    public boolean diminuirQuantidade() {
+    if (this.quantidade > 0) {
+        this.quantidade--;
+        return true;
+    }
+    return false;
+}
 
     public String getDescricao() {
         return descricao;
