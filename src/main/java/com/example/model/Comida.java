@@ -18,6 +18,9 @@ public class Comida extends Produto {
     public void setCalorias(int calorias) {
         this.calorias = calorias;
     }
+    public int getPeso() {
+        return peso;
+    }
 
     @Override
     public String getDetalhes() {
