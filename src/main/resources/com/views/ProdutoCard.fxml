@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Priority?>
+
+<HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.controller.ProdutoCardController"
+      spacing="12" alignment="CENTER_LEFT" styleClass="produto-card">
+    <padding>
+        <Insets top="10" right="14" bottom="10" left="14"/>
+    </padding>
+
+    <!-- Coluna de informações do produto -->
+    <VBox spacing="4" HBox.hgrow="ALWAYS">
+        <Label fx:id="lblNome" styleClass="produto-nome"/>
+        <Label fx:id="lblDetalhes" styleClass="produto-detalhes" wrapText="true"/>
+        <Label fx:id="lblValor" styleClass="produto-valor"/>
+    </VBox>
+
+    <!-- Controle de quantidade -->
+    <HBox spacing="8" alignment="CENTER">
+        <Button fx:id="btnRemover" text="-" onAction="#onRemover"/>
+        <Label fx:id="lblQuantidade" text="0" minWidth="24" alignment="CENTER"/>
+        <Button fx:id="btnAdicionar" text="+" onAction="#onAdicionar"/>
+    </HBox>
+</HBox>

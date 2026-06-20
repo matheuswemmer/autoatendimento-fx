@@ -3,7 +3,7 @@ package com.example.model;
 public class Comida extends Produto {
     
     private int calorias;
-    private int peso; // em gramas
+    private final int peso; // em gramas
 
     public Comida(String nome, double valor, String descricao, int calorias, int peso) {
         super(nome, valor, descricao);
