@@ -31,6 +31,8 @@ public class CardapioController {
 
             Stage popup = new Stage();
             popup.setTitle("Seu Carrinho");
+            // Liga o carrinho ao cardapio para fechar as duas telas ao finalizar o pedido.
+            popup.initOwner(containerProdutos.getScene().getWindow());
             popup.initModality(Modality.APPLICATION_MODAL); // bloqueia a tela de trás até fechar
             popup.setScene(new Scene(root));
             popup.showAndWait();

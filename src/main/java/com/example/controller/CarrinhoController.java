@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
@@ -81,7 +82,25 @@ public class CarrinhoController {
 
         if (sucesso) {
             Stage stage = (Stage) lblValorTotal.getScene().getWindow();
+            if (stage.getOwner() != null) {
+                stage.getOwner().hide();
+            }
             stage.close();
+            abrirTelaCozinha();
+        }
+    }
+
+    private void abrirTelaCozinha() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/views/Cozinha.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setTitle("Painel da Cozinha");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

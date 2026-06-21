@@ -29,7 +29,9 @@ public class Carrinho {
 
     public boolean finalizarCarrinho() {
         if (meuCarrinho.size() != 0) {
-            Pedido meuPedido = new Pedido(meuCarrinho);
+            // Copia os itens antes de limpar o carrinho, mantendo o pedido registrado.
+            Map<Produto, Integer> itensDoPedido = new HashMap<>(meuCarrinho);
+            Pedido meuPedido = new Pedido(itensDoPedido);
             Cozinha.enviarParaCozinha(meuPedido);
             meuCarrinho.clear();
             return true;

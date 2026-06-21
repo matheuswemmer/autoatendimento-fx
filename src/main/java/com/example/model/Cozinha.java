@@ -16,6 +16,7 @@ public class Cozinha {
         pedidos.add(pedido);
     }
     
+    // Controla o fluxo do pedido: em preparo -> pronto -> entregue.
     public static void avancarStatus(Pedido pedido) {
         switch (pedido.getStatus()) {
             case EM_PREPARO -> pedido.setStatus(Status.PRONTO);

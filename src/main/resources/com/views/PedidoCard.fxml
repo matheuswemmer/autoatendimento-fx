@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="8" styleClass="pedido-card" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controller.PedidoCardController">
+
+    <padding>
+        <Insets bottom="14" left="14" right="14" top="14" />
+    </padding>
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label styleClass="pedido-label" text="Pedido #" />
+        <Label fx:id="lblNumeroPedido" styleClass="pedido-id" text="1" />
+
+        <HBox HBox.hgrow="ALWAYS" />
+
+        <Label styleClass="pedido-label" text="Status:" />
+        <Label fx:id="lblStatus" styleClass="pedido-status" text="EM_PREPARO" />
+    </HBox>
+
+    <Label styleClass="pedido-subtitulo" text="Itens do Pedido" />
+
+    <Label fx:id="lblItens" styleClass="pedido-itens" wrapText="true" />
+
+    <HBox alignment="CENTER_LEFT">
+        <Label styleClass="pedido-label" text="Total: " />
+        <Label fx:id="lblValorTotal" styleClass="pedido-total" text="R$ 0,00" />
+    </HBox>
+
+    <Button fx:id="btnAvancarStatus" maxWidth="Infinity" onAction="#onAvancarStatus" text="Alterar Status" />
+</VBox>
