@@ -17,7 +17,7 @@ public abstract class Produto {
     
 
     public String getDetalhes(){
-    return ("ID: " + idDoProduto + " " + nome + "\n" +
+    return ("ID: " + idDoProduto + "\n" +
             "Descrição: " + descricao + "\n" +
             String.format("Valor: R$ %.2f%n", valor));
     }
