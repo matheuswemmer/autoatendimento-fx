@@ -303,7 +303,6 @@ EM_PREPARO → PRONTO → ENTREGUE
 - A arquitetura MVC foi adotada para promover desacoplamento e facilitar a manutenção do sistema.
 
 ---
-
 ## Autores
 
 - Matheus Wemmer

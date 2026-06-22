@@ -34,6 +34,7 @@
         </ScrollPane>
     </center>
 
+
     <!-- Rodapé fixo com acesso ao carrinho -->
     <bottom>
         <HBox alignment="CENTER_RIGHT" spacing="10" styleClass="cardapio-footer">
